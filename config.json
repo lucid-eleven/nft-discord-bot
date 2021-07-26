@@ -1,0 +1,5 @@
+{
+	"prefix": "!",
+  "openseaMetadataUrl": "https://api.opensea.io/api/v1/asset",
+  "openseaEventsUrl": "https://api.opensea.io/api/v1/events"
+}
