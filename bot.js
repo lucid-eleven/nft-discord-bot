@@ -57,9 +57,9 @@ client.on('message', msg => {
 client.login(process.env.DISCORD_BOT_TOKEN);
 
 app.get('/', (req, res) => {
-  res.send('Join us on <a href="https://discord.gg/T2sKzgb54y">Discord</a>!')
+  res.send('The bot is running')
 })
   
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Discord Bot app listening at http://localhost:${port}`)
 })

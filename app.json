@@ -1,0 +1,44 @@
+{
+  "name": "NFT Discord Bot",
+  "description": "A Discord bot for ERC721 NFT Collections",
+  "logo": "https://ipfs.io/ipfs/QmbnLfbgx4h99kXdPSdZkbfYe2gnMZYgkzQfK7sxLGn13v",
+  "keywords": [
+    "erc721",
+    "nft",
+    "discord",
+    "opensea"
+  ],
+  "repository": "https://github.com/lucid-eleven/nft-discord-bot",
+  "env": {
+    "CONTRACT_ADDRESS": {
+      "description": "Ethereum address for the NFT Smart Contract",
+      "required": true
+    },
+    "DISCORD_BOT_TOKEN": {
+      "description": "Pretty self explanatory",
+      "required": true
+    },
+    "DISCORD_SALES_CHANNEL_ID": {
+      "description": "The discord channel id where sales events should be posted to, should look like a long number",
+      "required": true
+    },
+    "DISCORD_TOKEN_COMMAND": {
+      "description": "The command word you'd like the bot to respond to for posting token information, pick a simple word that represents the collection.  Default: token",
+      "required": false
+    },
+    "OPEN_SEA_API_KEY": {
+      "description": "Contact OpenSea to request an API key at https://docs.opensea.io/reference#request-an-api-key. The bot will work without it, but heavy use may result in being blocked.",
+      "required": false
+    },
+    "OPEN_SEA_COLLECTION_NAME": {
+      "description": "The collection slug name on OpenSea, get this from the browser when you are viewing a collection.",
+      "required": true
+    }
+  },
+  "image": "heroku/nodejs",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

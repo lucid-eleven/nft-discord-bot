@@ -1,13 +1,13 @@
 {
   "name": "nft-discord-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Discord bot for getting NFT data from OpenSea",
+  "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "lucid-eleven",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
