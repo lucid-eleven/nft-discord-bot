@@ -1,6 +1,6 @@
 {
   "name": "NFT Discord Bot",
-  "description": "A Discord bot for ERC721 NFT Collections",
+  "description": "A Discord bot for getting NFT data from OpenSea",
   "logo": "https://ipfs.io/ipfs/QmbnLfbgx4h99kXdPSdZkbfYe2gnMZYgkzQfK7sxLGn13v",
   "keywords": [
     "erc721",
