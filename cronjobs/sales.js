@@ -50,7 +50,7 @@ module.exports = {
               .setTitle(event.asset.name)
               .setURL(event.asset.permalink)
               .setDescription(`has just been sold for ${event.total_price/(1e18)}\u039E`)
-              .setThumbnail(event.asset.image_original_url)
+              .setThumbnail(event.asset.image_url)
               .addField("From", `[${event.seller.user?.username || event.seller.address.slice(0,8)}](https://etherscan.io/address/${event.seller.address})`, true)
               .addField("To", `[${event.winner_account.user?.username || event.winner_account.address.slice(0,8)}](https://etherscan.io/address/${event.winner_account.address})`, true);
 
