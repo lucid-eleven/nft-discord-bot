@@ -32,7 +32,7 @@ client.on('ready', () => {
   client.cronjobs.forEach((value, key) => {
     setInterval(function() {
       value.execute(client);
-    }, 15000);
+    }, value.interval);
   });
 })
 

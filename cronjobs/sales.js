@@ -8,7 +8,7 @@ var lastTimestamp = null;
 module.exports = {
   name: 'sales',
   description: 'sales bot!',
-  schedule: '0,30 * * * * *',
+  interval: 30000,
   async execute(client) {
     if (lastTimestamp == null) lastTimestamp = Math.floor(Date.now()/1000) - 60;
     let newTimestamp = Math.floor(Date.now()/1000) - 30;
@@ -26,7 +26,6 @@ module.exports = {
       let url = `${openseaEventsUrl}?collection_slug=${process.env.OPEN_SEA_COLLECTION_NAME}&event_type=successful&only_opensea=false&offset=${offset}&limit=50&occurred_after=${lastTimestamp}&occurred_before=${newTimestamp}`;
       try {
         var res = await fetch(url, settings);
-        
         if (res.status != 200) {
           throw new Error(`Couldn't retrieve events: ${res.statusText}`);
         }
@@ -69,6 +68,6 @@ module.exports = {
       offset += data.asset_events.length;
     }
 
-    lastTimestamp = newTimestamp;
+    lastTimestamp = newTimestamp-1;
   }
 };
