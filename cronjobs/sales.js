@@ -10,8 +10,15 @@ module.exports = {
   description: 'sales bot!',
   interval: 30000,
   async execute(client) {
-    if (lastTimestamp == null) lastTimestamp = Math.floor(Date.now()/1000) - 60;
+    if (lastTimestamp == null) {
+      lastTimestamp = Math.floor(Date.now()/1000) - 120;
+    } else {
+      lastTimestamp -= 30;
+    }
     let newTimestamp = Math.floor(Date.now()/1000) - 30;
+    // we're retrieving events from -90 to -30 seconds ago each time, and each query overlaps the previous query by 30 seconds
+    // doing this to try to resolve some intermittent issues with events being missed by the bot, suspect it's due to OpenSea api being slow to update the events data
+    // duplicate events are filtered out by the salesCache array
 
     let offset = 0;
     let settings = { 
@@ -41,7 +48,7 @@ module.exports = {
               return;
             } else {
               salesCache.push(event.id);
-              if (salesCache.length > 20) salesCache.shift();
+              if (salesCache.length > 200) salesCache.shift();
             }
 
             const embedMsg = new Discord.MessageEmbed()
@@ -68,6 +75,6 @@ module.exports = {
       offset += data.asset_events.length;
     }
 
-    lastTimestamp = newTimestamp-1;
+    lastTimestamp = newTimestamp;
   }
 };
