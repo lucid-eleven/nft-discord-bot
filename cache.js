@@ -6,7 +6,7 @@ class CacheService {
     this.cache = new NodeCache({ stdTTL: ttlSeconds, checkperiod: ttlSeconds * 0.2, useClones: false });
   }
 
-  get(key, storeFunction) {
+  get(key, storeFunction, ttl) {
 
     const value = this.cache.get(key);
     if (value) {
@@ -14,7 +14,7 @@ class CacheService {
     }
 
     return storeFunction().then((result) => {
-      this.cache.set(key, result);
+      this.cache.set(key, result, ttl);
       return result;
     });
   }

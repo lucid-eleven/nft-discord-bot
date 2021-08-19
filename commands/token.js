@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { openseaMetadataUrl } = require('../config.json');
+const { openseaAssetUrl } = require('../config.json');
 
 const Discord = require('discord.js');
 
@@ -14,7 +14,7 @@ module.exports = {
       return message.channel.send(`Token id must be a number!`);
     }
 
-    let url = `${openseaMetadataUrl}/${process.env.CONTRACT_ADDRESS}/${args[0]}`;
+    let url = `${openseaAssetUrl}/${process.env.CONTRACT_ADDRESS}/${args[0]}`;
     let settings = { 
       method: "GET",
       headers: {
