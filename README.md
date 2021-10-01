@@ -37,7 +37,7 @@ All configuration is done via environment variables, which are as follows:
 | DISCORD_BOT_TOKEN   | Pretty self explanatory        |
 | DISCORD_SALES_CHANNEL_ID   | The discord channel id where sales events should be posted to, should look like a long number       |
 | DISCORD_TOKEN_COMMAND | The command word you'd like the bot to respond to for posting token information, pick a simple word that represents the collection, see example above |
-| OPEN_SEA_API_KEY | Contact OpenSea to request an API key at https://docs.opensea.io/reference#request-an-api-key.  The bot will work without it, but heavy use may result in being blocked. |
+| OPEN_SEA_API_KEY | Contact OpenSea to request an API key at https://docs.opensea.io/reference#request-an-api-key.  The bot will work without it, but heavy use may result in being blocked, just put an empty space here instead of leaving it out completely. |
 | OPEN_SEA_COLLECTION_NAME | The collection slug name on OpenSea, get this from the browser when you are viewing a collection, e.g. the collection name for https://opensea.io/collection/boredapeyachtclub is "**boredapeyachtclub**"|
 
 
