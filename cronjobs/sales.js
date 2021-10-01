@@ -29,7 +29,6 @@ module.exports = {
     };
     while(1)
     {
-
       let url = `${openseaEventsUrl}?collection_slug=${process.env.OPEN_SEA_COLLECTION_NAME}&event_type=successful&only_opensea=false&offset=${offset}&limit=50&occurred_after=${lastTimestamp}&occurred_before=${newTimestamp}`;
       try {
         var res = await fetch(url, settings);
@@ -37,7 +36,7 @@ module.exports = {
           throw new Error(`Couldn't retrieve events: ${res.statusText}`);
         }
 
-        data = await res.json();
+        let data = await res.json();
         if (data.asset_events.length == 0) {
           break;
         }
@@ -67,12 +66,13 @@ module.exports = {
               .catch(console.error);
           }
         });
+
+        offset += data.asset_events.length;
       }
       catch (error) {
-        console.error
+        console.error(error);
+        return;
       }
-
-      offset += data.asset_events.length;
     }
 
     lastTimestamp = newTimestamp;
