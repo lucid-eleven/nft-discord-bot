@@ -19,9 +19,12 @@ The bot's post will contain the current price with a link to the item for sale o
 
 ## Automatic Posts
 ### **Sales**
-The bot will look up sales events on OpenSea every 15 seconds, and all newly closed sales will be posted to the configured Discord channel.
+The bot will look up sales events on OpenSea every 30 seconds, and all newly closed sales will be posted to the configured Discord channel.
 
 ![Sales bot example](https://i.imgur.com/jUHRJWi.png)
+
+### **Listings**
+The bot will look up sales events on OpenSea every 30 seconds, and all newly created sales listing will be posted to the configured Discord channel.
 
 # Configuration
 
@@ -35,7 +38,8 @@ All configuration is done via environment variables, which are as follows:
 | ----------- | ----------- |
 | CONTRACT_ADDRESS      | Ethereum address for the NFT Smart Contract       |
 | DISCORD_BOT_TOKEN   | Pretty self explanatory        |
-| DISCORD_SALES_CHANNEL_ID   | The discord channel id where sales events should be posted to, should look like a long number       |
+| DISCORD_SALES_CHANNEL_ID   | The discord channel id where sales events should be posted to, should look like a long number. |
+| DISCORD_LISTING_CHANNEL_ID   | The discord channel id where listing events should be posted to, should look like a long number. |
 | DISCORD_TOKEN_COMMAND | The command word you'd like the bot to respond to for posting token information, pick a simple word that represents the collection, see example above |
 | OPEN_SEA_API_KEY | Contact OpenSea to request an API key at https://docs.opensea.io/reference#request-an-api-key.  The bot will work without it, but heavy use may result in being blocked, just put an empty space here instead of leaving it out completely. |
 | OPEN_SEA_COLLECTION_NAME | The collection slug name on OpenSea, get this from the browser when you are viewing a collection, e.g. the collection name for https://opensea.io/collection/boredapeyachtclub is "**boredapeyachtclub**"|

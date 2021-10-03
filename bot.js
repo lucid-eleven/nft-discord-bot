@@ -24,7 +24,10 @@ for (const file of cronFiles) {
   const job = require(`./cronjobs/${file}`);
   // set a new item in the Collection
   // with the key as the job name and the value as the exported module
-  client.cronjobs.set(job.name, job);
+  if (job.enabled) {
+    console.log(`enabling ${job.description}`)
+    client.cronjobs.set(job.name, job);
+  }
 }
 
 client.on('ready', () => {
