@@ -57,7 +57,7 @@ client.on('message', msg => {
   }
 })
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+client.login(process.env.botToken);
 
 app.get('/', (req, res) => {
   res.send('The bot is running')
