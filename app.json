@@ -11,7 +11,7 @@
   "repository": "https://github.com/lucid-eleven/nft-discord-bot",
   "env": {
     "CONTRACT_ADDRESS": "0xbbc93a41f78a11d0779171f270fc86ee8efb3765",
-    "DISCORD_BOT_TOKEN": "OTIzMzY5OTM2NTczODI1MDI0.YcPBRA.5pJ_Ywh8x3Yk9o-rCHMW6mKxwys",
+    "DISCORD_BOT_TOKEN": "OTIzMzY5OTM2NTczODI1MDI0.YcPBRA._GMvolEeb3aOh0dLksCJZ1ElpUA",
     "DISCORD_SALES_CHANNEL_ID": "923515138609414194",
     "DISCORD_TOKEN_COMMAND": "oddie",
     "OPEN_SEA_API_KEY": "",
