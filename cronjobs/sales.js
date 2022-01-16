@@ -38,6 +38,8 @@ module.exports = {
         }
 
         let data = await res.json();
+        console.log(`${data.asset_events.length} new sales - ${url}`)
+
         if (data.asset_events.length == 0) {
           break;
         }

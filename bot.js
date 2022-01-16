@@ -32,10 +32,8 @@ for (const file of cronFiles) {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.cronjobs.forEach((value, key) => {
-    setInterval(function() {
-      value.execute(client);
-    }, value.interval);
+  client.cronjobs.forEach(job => {
+    setInterval(() => job.execute(client), job.interval);
   });
 })
 
