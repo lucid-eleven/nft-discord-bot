@@ -8,15 +8,11 @@ var lastTimestamp = null;
 module.exports = {
   name: 'sales',
   description: 'sales bot',
-  interval: 30000,
+  interval: 3000,
   enabled: process.env.DISCORD_SALES_CHANNEL_ID != null,
   async execute(client) {
-    if (lastTimestamp == null) {
-      lastTimestamp = Math.floor(Date.now() / 1000) - 120;
-    } else {
-      lastTimestamp -= 30;
-    }
-    let newTimestamp = Math.floor(Date.now() / 1000) - 30;
+
+    var newTimestamp = Math.floor(Date.now() / 1000) - 120;
 
     let next = null;
     let newEvents = true;
@@ -27,7 +23,7 @@ module.exports = {
       }
     };
     do {
-      let url = `${openseaEventsUrl}?collection_slug=${process.env.OPEN_SEA_COLLECTION_NAME}&event_type=successful&only_opensea=false&occurred_before=${newTimestamp}${next == null ? '' : `&cursor=${next}`}`;
+      let url = `${openseaEventsUrl}?collection_slug=${process.env.OPEN_SEA_COLLECTION_NAME}&event_type=successful&only_opensea=false&occurred_after=${newTimestamp}${next == null ? '' : `&cursor=${next}`}`;
       try {
         var res = await fetch(url, settings);
         if (res.status != 200) {
@@ -48,10 +44,17 @@ module.exports = {
               if (salesCache.length > 200) salesCache.shift();
             }
 
-            if ((+new Date(event.created_date) / 1000) < lastTimestamp) {
+            if (next === null && data.asset_events === null){
               newEvents = false;
               return;
             }
+
+            // if ((+new Date(event.created_date) / 1000) < lastTimestamp) {
+            //   console.log((+new Date(event.created_date) / 1000), lastTimestamp);
+
+            //   newEvents = false;
+            //   return;
+            // }
 
             const embedMsg = new Discord.MessageEmbed()
               .setColor('#0099ff')
@@ -71,7 +74,7 @@ module.exports = {
         });
       }
       catch (error) {
-        console.error(error);
+        // console.error(error);
         return;
       }
     } while (next != null && newEvents)
