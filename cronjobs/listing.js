@@ -58,12 +58,14 @@ module.exports = {
             }
 
             const embedMsg = new Discord.MessageEmbed()
-              .setColor('#0099ff')
-              .setTitle(event.asset.name)
+              .setColor('#E59E42')
+              .setTitle(`${event.asset.name} has been listed!`)
               .setURL(event.asset.permalink)
-              .setDescription(`has just been listed for ${event.starting_price / (1e18)}\u039E`)
-              .setThumbnail(event.asset.image_url)
-              .addField("By", `[${event.seller.user?.username || event.seller.address.slice(0, 8)}](https://etherscan.io/address/${event.seller.address})`, true)
+              .setThumbnail('https://lh3.googleusercontent.com/8sddAN9FeHQp2THQjaYoLQvjogaYEDxNpqwWXwU3hdmU3eEol9xR3Bp7LB1Lq-lF4CrwX02ZaGpSYSi4_Q_VPdJlvRrQFmZ78L8sjg=s0')
+              .setDescription(``)
+              .setImage(event.asset.image_url)
+              .addField("Price", `${event.starting_price / (1e18)}\u039E`, false)
+              .addField("Listed By", `[${event.seller.user?.username || event.seller.address.slice(0, 8)}](https://etherscan.io/address/${event.seller.address})`, true)
 
             client.channels.fetch(process.env.DISCORD_LISTING_CHANNEL_ID)
               .then(channel => {
