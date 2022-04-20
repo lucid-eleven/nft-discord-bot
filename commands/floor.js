@@ -35,7 +35,7 @@ module.exports = {
 	execute(message) {
     cache.get("FloorPrice", fetchFloor)
       .then((floorPrice) => {
-        message.channel.send(`The current floor price is ${floorPrice.toFixed(3)}Ξ`);
+        // message.channel.send(`The current floor price is ${floorPrice.toFixed(3)}Ξ`);
       })
       .catch(error => message.channel.send(error.message));
 	},
