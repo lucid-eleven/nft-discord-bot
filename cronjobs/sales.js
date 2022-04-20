@@ -56,14 +56,18 @@ module.exports = {
             //   return;
             // }
 
+            
+
             const embedMsg = new Discord.MessageEmbed()
-              .setColor('#0099ff')
-              .setTitle(event.asset.name)
+              .setColor('#E59E42')
+              .setTitle(`${event.asset.name} has been sold!`)
               .setURL(event.asset.permalink)
-              .setDescription(`has just been sold for ${event.total_price / (1e18)}\u039E`)
-              .setThumbnail(event.asset.image_url)
-              .addField("From", `[${event.seller.user?.username || event.seller.address.slice(0, 8)}](https://etherscan.io/address/${event.seller.address})`, true)
-              .addField("To", `[${event.winner_account.user?.username || event.winner_account.address.slice(0, 8)}](https://etherscan.io/address/${event.winner_account.address})`, true);
+              .setImage(event.asset.image_url)
+              .setDescription(``)
+              .setThumbnail('https://lh3.googleusercontent.com/8sddAN9FeHQp2THQjaYoLQvjogaYEDxNpqwWXwU3hdmU3eEol9xR3Bp7LB1Lq-lF4CrwX02ZaGpSYSi4_Q_VPdJlvRrQFmZ78L8sjg=s0')
+              .addField("Price", `${event.total_price / (1e18)}\u039E`, false)
+              .addField("Seller", `[${event.seller.user?.username || event.seller.address.slice(0, 8)}](https://etherscan.io/address/${event.seller.address})`, true)
+              .addField("Buyer", `[${event.winner_account.user?.username || event.winner_account.address.slice(0, 8)}](https://etherscan.io/address/${event.winner_account.address})`, true);
 
             client.channels.fetch(process.env.DISCORD_SALES_CHANNEL_ID)
               .then(channel => {
