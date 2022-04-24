@@ -6,6 +6,12 @@ const Discord = require('discord.js');
 module.exports = {
 	name: process.env.DISCORD_TOKEN_COMMAND || "token",
 	execute(message, args) {
+
+    if (message.channel.id != '926030570071400478') {
+      return;
+    }
+
+
     if (!args.length) {
       return message.channel.send(`You didn't provide a token id, ${message.author}!`);
     }
