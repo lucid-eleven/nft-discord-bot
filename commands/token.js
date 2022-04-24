@@ -42,10 +42,10 @@ module.exports = {
               .addField("Owner", metadata.owner.user?.username || metadata.owner.address.slice(0,8))
               .setImage(metadata.image_url);
 
-            metadata.traits.forEach(function(trait){
-              embedMsg.addField(trait.trait_type, `${trait.value} (${Number(trait.trait_count/metadata.collection.stats.count).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2})})`, true)
-              //embedMsg.addField(trait.trait_type, `${trait.value}`, true)
-            });
+            // metadata.traits.forEach(function(trait){
+            //   embedMsg.addField(trait.trait_type, `${trait.value} (${Number(trait.trait_count/metadata.collection.stats.count).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2})})`, true)
+            //   //embedMsg.addField(trait.trait_type, `${trait.value}`, true)
+            // });
 
             message.channel.send(embedMsg);
         })
