@@ -9,7 +9,7 @@ module.exports = {
   name: 'listing',
   description: 'listing bot',
   interval: 30000,
-  enabled: process.env.DISCORD_LISTING_CHANNEL_ID != null,
+  enabled: false,
   async execute(client) {
     if (lastTimestamp == null) {
       lastTimestamp = Math.floor(Date.now() / 1000) - 120;
